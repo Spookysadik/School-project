@@ -1,0 +1,184 @@
+
+<style>
+
+    #logo {
+        opacity: 0;
+        animation: mymo 5s 1 normal ease-out running forwards 0.5s;
+        -webkit-animation: mymo 5s 1 normal ease-out running forwards 0.5s;
+    }
+    @keyframes mymo {
+        from {
+            opacity: 0;}
+        to {
+            opacity: 1;
+        }}
+
+</style>
+<!-- Header -->
+<header class="container-fluid text-center bgh">
+    <div class="" id="logo"><img class="img-fluid" src="img/icone/Asset.png" alt="logo"></div>
+    <h1 class="home" id="Home">Le Valet de Carreau</h1>
+</header>
+<?php require('views/nav-bar.html') ?>
+<!--- About -->
+<section class="container bg-blu padding shadow p-3 mb-5 mt-5">
+    <div class="col-12">
+        <h1 class="text-center">Concept</h1>
+    </div>        
+    <div class="row about mx-auto">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 padding">
+            <img class="rounded-circle " src="img/team.png" alt="team" width="140" height="140">
+            <img class="rounded-circle float-right" src="img/drink.jpg" alt="drink" width="105" height="105"> 
+            <img class="rounded-circle" src="img/tapas.png" alt="tapas" width="70" height="70">   
+        </div>  
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-5 padding">
+            <p class="text-center">
+                Au cœur de la ville rose, la Team Valet de Carreau est un lieu de détente et de divertissement. 
+                <br>Chez nous on s'amuse! Notre ludothèque est à votre disposition. Son espace bar vous accueille autour d’une table de jeux, entre briques rouges, bois brut et métal rouillé.
+                Nous disposons aussi d'une salle exclusivement réservé au jeux de rôles réservable gratuitement.<br> 
+                Le valet de carreau c'est: une salle de rôle, un bar à jeux, un lieu de rencontre et de spectacle…                 
+            </p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 contResa">
+            <span class="img_text">
+                <span class="imgResa text-center">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-link btnResa" data-toggle="modal" data-target="#modalJdr">Réservation</button>
+                </span>
+            </span>                     
+        </div>
+    </div>
+    <!-- Modaljdr -->
+    <div class="modal fade" id="modalJdr" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class ="modal-dialog modal-dialog-centered">
+            <div id="contactForm" class="modal-content">
+                <div class="modal-body container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Réserver la salle de rôle</h4>
+                        <br>
+                        <div class="col-7 mx-auto mb-2">
+                            <label for="inputName" class="sr-only">Votre nom</label>
+                            <input type="text" id="nomJdr" class="form-control validate border-bottom" placeholder="Votre nom" required autofocus>
+                        </div>
+                        <div class="col-7 mx-auto mb-2">
+                            <label for="inputName" class="sr-only">Votre numéro de téléphone</label>
+                            <input type="text" id="telJdr" class="form-control validate border-bottom" placeholder="Votre numéro de téléphone" required autofocus>
+                        </div>
+
+                        <p class="mt-3">Choisissez votre jour pour la reservation:</p>
+                        <br>
+                        <div id="datetimepicker1" class="input-append date">
+                            <input id="resaDate" data-format="dd/MM/yyyy" type="date"/>
+                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span><br>
+                            <p class="mt-3">Horaires disponibles pour la reservation:</p><br>
+                            <select id="resaTime" class="p-2 m-1" name="select">
+                                <option value="10">10H00</option>
+                                <option value="11">11H00</option>
+                                <option value="12">12H00</option>
+                                <option value="13">13H00</option>
+                                <option value="14">14H00</option>
+                                <option value="15">15H00</option>
+                                <option value="16">16H00</option>
+                                <option value="17">17H00</option>
+                                <option value="18">18H00</option>
+                            </select>
+                            <select id="resaDure" class="p-2 m-2" name="select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+
+                            </select>
+                            <br>
+                            <p class="p-2">Pour un maximum de 2 heures</p>
+
+                            <button type="button" class="btn btn-lg btn-blu m-3" data-dismiss="modal">Annuler</button>
+                            <button id="resaSend" type="button" class="btn btn-lg btn-blu m-3" data-dismiss="modal">Envoyer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--- Game Slider -->
+<h2 class="col-12 text-center padding">Jeux du Moment</h2> 
+<section class="container">                           
+    <div class="row text-center padding justify-content-md-center">
+        <?php 
+        $i = 0;
+        foreach ($jdm as $game)
+        {
+
+        ?>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="">                        
+                <div class="jdc" style="background-image: url('<?php echo $game ['jeu_img']; ?>');"></div>
+                <div class="pico"></div>
+                <div class="pico1"></div>                      
+            </div>
+            <div class="">                        
+                <h3><?php echo htmlspecialchars($game["jeu_nom"]); ?></h3>
+                <p class="font-italic"><?php echo htmlspecialchars($game["jeu_des"]); ?></p>                        
+            </div>
+        </div>
+        <?php 
+        $i++;
+        } ?>
+    </div>
+    <h3 class="col-12 text-center padding">Coup de foudre pour un de nos jeux ou envie de faire plaisir ? Laissez-vous tenter, nous faisons aussi boutique </h3>          
+</section>
+
+<!--- Event Section -->
+<section class="container bg-event padding shadow p-3 mb-5">
+    <h1 class="text-center">Evénement</h1>
+    <?php 
+    $i = 0;
+    foreach ($event as $e)
+    {
+
+    ?>
+    <div class="row d-flex justify-content-around padding event">
+        <button id="event<?php echo $e['event_id']; ?>" class="btn btn-lg btn-blu" data-toggle="modal" data-target="#modalEvent">
+            <p><?php echo \DateTime::createFromFormat("Y-m-d H:i:s", $e["event_date"])->format("d-F"); ?><br><?php echo htmlspecialchars($e["event_nom"]); ?></p>
+            <h4 class="">S'inscrire</h4>
+        </button>
+        <script>
+            $('#event<?php echo $e["event_id"]; ?>').click(function() {
+            currentEvent = <?php echo $e['event_id']; ?>;
+        });
+        </script>
+        <?php 
+        $i++;
+        } ?>          
+    </div>          
+
+    <!-- Modalevent -->
+    <div class="modal fade" id="modalEvent" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="infos">
+            <div id="contactForm" class="modal-content">
+                <div class="modal-header padding">
+                    <h4 class="modal-title w-100 font-weight-bold">Participer à l'événement</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3 ">      
+                    <div class="mb-form mb-5">
+                        <label for="inputName" class="sr-only">Votre nom</label>
+                        <input type="text" id="eventNom" class="form-control validate border-bottom" placeholder="Votre nom" required autofocus>
+                    </div>
+                    <div class="mb-form mb-4 ">
+                        <label for="inputnbr" class="sr-only">Nombre de personnes</label>
+                        <input type="number" id="eventNbr" class="form-control validate border-bottom" placeholder="Nombre de personne" required>
+                    </div>
+                </div>
+                <div class="modal-footer padding">
+                    <button id="eventSend" class="btn btn-block btn-blu mb-4">Envoyer</button>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</section>
+

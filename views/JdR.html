@@ -1,0 +1,97 @@
+
+<style>
+    .jb {
+        font-family: Playfair;
+        color: #182B4A;
+        background-color: #F9F9F9;
+        font-size: 1.4rem;
+    } 
+    .jb:hover {
+        color: #F9F9F9;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .tr {
+        margin: auto;
+    }
+</style>
+<!-- Header -->
+<header class="container-fluid text-center bghJdr">
+    <h1 class="home" id="Jdr">Jeux de Rôles</h1>
+</header>
+<?php require('views/nav-bar.html') ?>
+<!-- role --> 
+<section class="container">
+    <div class="row pb-0">
+        <div class="col-8 text-center tr col-xs-12" id="featured">
+            <h3 class="font-italic"> Quel est ton choix ?</h3>
+        </div>
+        <div class="gradient text-center col-4 col-xs-12">
+            <div id="SciF" class="jb m-4 p-4 mt-5">Science Fiction</div>
+            <div id="Med" class="jb m-4 p-4">Médiéval Fantastique</div>
+            <div id="Cont" class="jb m-4 p-4">Contemporain</div>
+            <div id="Aut" class="jb m-4 p-4">Autres</div>                 
+            <div class="contResa mb-5">
+                <span class="img_text">
+                    <span class="imgResa">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-link btnResa" data-toggle="modal" data-target="#modalJdr">Réservation</button>
+                    </span>
+                </span>                     
+            </div>
+        </div>
+
+    </div>
+    <!-- Modaljdr -->
+    <div class="modal fade" id="modalJdr" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class ="modal-dialog modal-dialog-centered">
+            <div id="contactForm" class="modal-content">
+                <div class="modal-body container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Réserver la salle de rôle</h4>
+                            <br>
+                            <div class="col-7 mx-auto mb-2">
+                                <label for="inputName" class="sr-only">Votre nom</label>
+                                <input type="text" id="nomJdr" class="form-control validate border-bottom" placeholder="Votre nom" required autofocus>
+                            </div>
+                            <div class="col-7 mx-auto mb-2">
+                                <label for="inputName" class="sr-only">Votre numéro de téléphone</label>
+                                <input type="text" id="telJdr" class="form-control validate border-bottom" placeholder="Votre numéro de téléphone" required autofocus>
+                            </div>
+
+                            <p class="mt-3">Choisissez votre jour pour la reservation:</p>
+                            <br>
+                            <div id="datetimepicker1" class="input-append date">
+                                <input id="resaDate" data-format="dd/MM/yyyy" type="date"/>
+                                <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span><br>
+                                <p class="mt-3">Horaires disponibles pour la reservation:</p><br>
+                                <select id="resaTime" class="p-2 m-1" name="select">
+                                    <option value="10">10H00</option>
+                                    <option value="11">11H00</option>
+                                    <option value="12">12H00</option>
+                                    <option value="13">13H00</option>
+                                    <option value="14">14H00</option>
+                                    <option value="15">15H00</option>
+                                    <option value="16">16H00</option>
+                                    <option value="17">17H00</option>
+                                    <option value="18">18H00</option>
+                                </select>
+                                <select id="resaDure" class="p-2 m-2" name="select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+
+                                </select>
+                                <br>
+                                <p class="p-2">Pour un maximum de 2 heures</p>
+
+                                <button type="button" class="btn btn-lg btn-blu m-3" data-dismiss="modal">Annuler</button>
+                                <button id="resaSend" type="button" class="btn btn-lg btn-blu m-3" data-dismiss="modal">Envoyer</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

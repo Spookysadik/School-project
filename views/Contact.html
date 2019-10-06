@@ -1,0 +1,55 @@
+
+<style>
+    .phone {
+        width: 30%;
+    }
+    section {
+
+    }
+</style>
+<!-- Header -->
+<header class="container-fluid text-center bghC">
+
+    <h1 class="home" id="Contact">Contact</h1>
+</header>
+<?php require('views/nav-bar.html') ?>
+<!-- Infos -->  
+<section class="container padding">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Venir chez nous</h4>
+            <p>Notre adresse : 20 rue de l'étoile, 31000 TOULOUSE</p>
+            <p>En bus : Ligne 20 à l'arrêt du Berger</p>
+            <p>En métro : Ligne B à l'arrêt Prince</p>
+            <p>En voiture : Il y a un parking sous-terrain (Licorne Nocturne) à quelques mètres de notre lieux</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Nos horaires</h4>
+            <p>Lundi  -  fermé</p>
+            <p>Mardi  -  10h - 19h</p>
+            <p>Mercredi - 10h - 19h</p>
+            <p>Jeudi  -  10h - 19h</p>
+            <p>Vendredi - 10h - 19h</p>
+            <p>Samedi -  10h - 19h</p>
+            <p>Dimanche - fermé</p>
+        </div>
+    </div>
+</section>
+<!-- Contact -->              
+<section class="container bg-blu padding shadow p-3 mb-5">
+    <div class="row">
+        <div class="col-md-8 padding">
+            <h4 class="">Nous contacter: </h4><br>
+            <div id="contactForm">
+                <input id="email" class="form-control" name="email" placeholder="Votre e-mail..." /><br />
+                <textarea id="comment" class="form-control" name="text" placeholder="Comment pouvons nous vous aidez ?"></textarea><br />
+                <input id="submit" class="btn btn-blu btn-block border border-secondary" type="submit" value="Send" /><br /><br />
+                <div id="msgSubmit" class="h3 text-center hidden"></div> 
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h4>Nous joindre</h4>
+            <a href="tel:+33674429956"><img class="phone" src="img/icone/phone.png" alt="phone"></a>
+        </div>
+    </div>   
+</section> 

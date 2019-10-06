@@ -1,0 +1,78 @@
+
+<style>
+    .b-img {
+        object-fit: cover;
+        opacity: 0.8;
+    }
+    .bg-event {
+
+    }
+
+</style>
+<!-- Header -->
+<header class="container-fluid text-center bgh">
+    <h1 class="home" id="Baj">Bar à Jeux</h1>
+</header>
+<?php require('views/nav-bar.html') ?>   
+<!-- Infos -->
+<section class="container padding">
+    <p class="text-center padding">Le valet de carreau dispose d'une salle de rôle, d'un bar à jeux, un lieu de rencontre et de spectacle.</p>
+    <div class="row d-flex justify-content-center padding">
+        <img class="rounded-circle b-img padding" src="img/drink.jpg" alt="team" width="250" height="250">
+        <img class="rounded-circle b-img padding" src="img/team.png" alt="team" width="250" height="250">
+        <img class="rounded-circle b-img padding" src="img/tapas.png" alt="team" width="250" height="250">
+    </div>
+
+</section>
+
+<!--- Event Section -->
+<section class="container-fluid bg-event" data-stellar-background-ratio="0.5">
+    <h1 class="text-center">Evénement</h1>
+    <?php 
+    $i = 0;
+    foreach ($event as $e)
+    {
+
+    ?>
+    <div class="row d-flex justify-content-around padding event">
+        <button id="event<?php echo $e['event_id']; ?>" class="btn btn-lg btn-blu" data-toggle="modal" data-target="#modalEvent">
+            <p><?php echo \DateTime::createFromFormat("Y-m-d H:i:s", $e["event_date"])->format("d-F"); ?><br><?php echo htmlspecialchars($e["event_nom"]); ?></p>
+            <h4 class="">S'inscrire</h4>
+        </button>
+        <script>
+            $('#event<?php echo $e["event_id"]; ?>').click(function() {
+            currentEvent = <?php echo $e['event_id']; ?>;
+});
+</script>
+        <?php 
+        $i++;
+        } ?>          
+    </div>
+    <!-- Modalevent -->
+    <div class="modal fade" id="modalEvent" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="infos">
+            <div id="contactForm" class="modal-content">
+                <div class="modal-header padding">
+                    <h4 class="modal-title w-100 font-weight-bold">Participer à l'événement</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3 ">      
+                    <div class="mb-form mb-5">
+                        <label for="inputName" class="sr-only">Votre nom</label>
+                        <input type="text" id="eventNom" class="form-control validate border-bottom" placeholder="Votre nom" required autofocus>
+                    </div>
+                    <div class="mb-form mb-4 ">
+                        <label for="inputnbr" class="sr-only">Nombre de personnes</label>
+                        <input type="number" id="eventNbr" class="form-control validate border-bottom" placeholder="Nombre de personne" required>
+                    </div>
+                </div>
+                <div class="modal-footer padding">
+                    <button id="eventSend" class="btn btn-block btn-blu mb-4">Envoyer</button>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</section>
+

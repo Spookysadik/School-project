@@ -1,0 +1,39 @@
+
+<!-- Header -->
+<header class="container-fluid text-center bghJdc">
+    <h1 class="home" id="Jdc">Jeux de Cartes</h1>
+</header>
+<?php require('views/nav-bar.html') ?> 
+<!-- jeux -->
+<section class="container">        
+    <div id="disJdc" class="mt-5 mb-5" >
+
+        <div class="row">
+            <?php 
+            $i = 0;
+            foreach ($games as $game)
+            {
+            if ($i%3 == 0){
+            ?></div>
+        <div class="row">
+            <?php 
+            }
+            ?>
+            <div id="button" class="row gradient shadow m-3 col-md">
+                <div class="padding" id="heading<?php echo $game ['jeu_id'];?>">                        
+                    <div class="jdc" style="background-image: url('<?php echo $game ['jeu_img']; ?>');"></div>                      
+                </div>
+                <div class="">
+                    <h3 class="font-weight-bold mt-2"><?php echo htmlspecialchars($game["jeu_nom"]); ?></h3>
+                    <p class=""><small class="text-muted"><?php echo $game["jeu_nbr_min"]. " à " . $game["jeu_nbr_max"] . " joueurs"; ?></small></p>
+                    <p class=""><small class="text-muted"><?php echo "à partir de " . htmlspecialchars($game["jeu_age"]) . "ans"; ?></small></p>
+                    <p class=""><small class="text-muted"><?php echo htmlspecialchars($game["jeu_tem"]) . " minutes"; ?></small></p>
+                </div>
+                <p class="font-italic padding"><?php echo htmlspecialchars($game["jeu_des"]); ?></p>
+            </div>
+            <?php 
+            $i++;
+            } ?>
+        </div>
+    </div>
+</section>

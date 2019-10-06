@@ -1,0 +1,50 @@
+<!-- Navigation -->
+<?php 
+$controller = "Home";
+$exploded = explode("/", $_SERVER['PHP_SELF']);
+if(isset($exploded[3]) && !empty($exploded[3])){
+$controller = ucfirst($exploded[3]);
+}
+?>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navVdc" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-md-center" id="navVdc">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link <?php echo ($controller == "Home" ? 'active':'');?>" href="#home">Accueil</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="/backvdc/index.php/Jds" class="nav-link dropdown <?php echo ($controller == "Jds" ? 'active':'');?>"  role="menu" aria-expanded="false">Jeu de Société</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="nav-link" href="/backvdc/index.php/Jds#6a9">6 à 9 ans</a></li>
+                    <li><a class="nav-link" href="/backvdc/index.php/Jds#10a12">10 à 12 ans</a></li>
+                    <li><a class="nav-link" href="/backvdc/index.php/Jds#13p">13 ans et plus</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="/backvdc/index.php/Jdc" class="dropdown nav-link <?php echo ($controller == "Jdc" ? 'active':'');?>"  role="menu" aria-expanded="false">Jeu de Cartes</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="/backvdc/index.php/Jdr" class="dropdown nav-link <?php echo ($controller == "Jdr" ? 'active': '');?>" data-hover="dropdown" role="menu" aria-expanded="false">Jeu de Rôles</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="nav-link" href="/backvdc/index.php/Jdr#SciF">Science fiction</a></li>
+                    <li><a class="nav-link" href="/backvdc/index.php/Jdr#Med">Médiéval Fantastique</a></li>
+                    <li><a class="nav-link" href="/backvdc/index.php/Jdr#Cont">Contemporain</a></li>
+                    <li><a class="nav-link" href="/backvdc/index.php/Jdr#Aut">Autres</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo ($controller == "BaJ" ? 'active':'');?>" href="/backvdc/index.php/BaJ">Bar à Jeux</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo ($controller == "Contact" ? 'active':'');?>" href="/backvdc/index.php/Contact">Contact</a>
+            </li>
+        </ul>
+        <form for="autocomplete" class="form-inline mt-2 mt-md-0 ui-widget">
+            <input id="autocomplete" class="form-control mr-sm-2 " type="text" placeholder="Search">  
+        </form>
+        <img class="img-fluid my-2 my-sm-0" style="max-width: 1%" src="img/icone/magni.png">  
+    </div>
+</nav>       

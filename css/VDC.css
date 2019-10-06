@@ -1,0 +1,347 @@
+/*col < 576px
+sm > 576px
+md > 768px
+lg > 992px
+xl > 1200px
+*/
+
+/****autocomplete*******/
+
+#ui-id-1 {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    position: absolute;
+    z-index: 100;
+    list-style-type: none;
+    overflow-y: auto;
+    max-height: 250px;
+    padding-top: 20px ;
+    background: #89B5F8;
+}
+#ui-id-1>li {
+    font-family: 'Calibri';
+    display: block;
+}
+/*****BODY****/
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size:62.5%;
+}
+@font-face {
+    font-family: 'Calibri';
+    src: url(../police/calibri.ttf);
+}
+@font-face {
+    font-family: 'Playfair';
+    src: url(../police/PlayfairDisplaySC-Regular.ttf);
+}
+@font-face {
+    font-family: 'Gabriola';
+    src: url(../police/Gabriola.ttf);
+}
+[class*="col-"] {
+    padding: .8rem;
+}
+.padding {
+    padding: 2rem;
+}
+body {
+    font-family: Calibri;
+    color: #182B4A;
+    background-color: #F9F9F9;
+}
+h1 {
+    font-family: Playfair;
+    color: #F9F9F9;
+    margin: .5em;
+    text-shadow: 1px 1px 10px #000;
+}
+h2 {
+    font-family: Playfair;
+    color: #182B4A ;
+    margin: 1em;
+}
+h3 {
+    font-family: Gabriola;
+    margin-top: 1em;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 5px #000;
+}
+h4 {
+    font-family: Gabriola;
+    color: #C03221;
+    font-size: 2.2rem;
+}
+p{
+    font-family: Calibri;
+    font-size: 1.5rem;
+    color: #182B4A;
+
+}
+a {
+    color: #182B4A;
+}
+a:hover {
+    text-decoration: none;
+}
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+/****Header***/
+.bgh {
+    padding: 5%;
+    background-image: url('../img/barsimple.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bghJdr {
+    padding: 5%;
+    background-image: url('../img/jdr.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bghJds {
+    padding: 5%;
+    background-image: url('../img/jeurange.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bghJdc {
+    padding: 5%;
+    background-image: url('../img/cartes.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bghBaj {
+    padding: 5%;
+    background-image: url('../img/barsimple.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bghC {
+    padding: 5%;
+    background-image: url('../img/carte.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.home {
+    font-size: 600%;
+    text-shadow: 1px 1px 10px #000;
+}
+
+/******NAVBAR******/
+
+.navbar {
+    font-family: Playfair;
+    padding: .8rem;
+}
+.navbar-nav li {
+    padding-right: 1.4rem;
+}
+.nav-link {
+    font-size: 1.5em !important;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #182B4A !important ;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: #89B5F8 !important;
+}
+
+/******ABOUT******/
+.about {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+.about h1 {
+    padding-bottom: 2rem;
+}
+.about img {
+    object-fit: cover;
+}
+/***réservation***/
+.contResa  span.img_text {
+    border-style: solid;
+    border-width: 10px;
+    border-color: #182B4A;
+    border-radius: 50%;
+    background-image: url('../img/resa.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 15vw;
+    display: block;
+    height: 15vw;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.2);
+    margin: auto;
+}
+
+.contResa span.img_text span.imgResa {
+    display: block;
+    margin: 75px auto 10px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.contResa span.img_text .btnResa {
+    color: #f9f9f9;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    font-size: 1.5vw;
+    font-family: Playfair;
+}
+
+.contResa span.img_text:hover {
+    background-color: #182B4A;
+    border-color: #f9f9f9;
+    box-shadow: 1px 1px 40px 20px rgba(0, 0, 0, 0.2);
+}
+.contResa span.img_text:hover span.imgResa {
+    filter: brightness(0) invert(1);
+}
+
+/******Jeu*******/
+
+.pico{
+    position:absolute;
+    width:130px;
+    height:130px;
+    z-index:-1;
+    background-color:rgb(137, 181, 248,0.6);
+    margin:auto;
+    transform: rotate(45deg);
+    border-radius:10px;
+    top: 0;
+    left: 16%;
+    transition: all is ease;
+}
+.pico1{
+    position:absolute;
+    width:130px;
+    height:130px;
+    z-index:-2;
+    background-color:rgb(176, 223, 243,0.6);
+    margin:auto;
+    transform: rotate(60deg);
+    border-radius:10px;
+    top: 0;
+    left: 16%;
+    transition: all is ease;
+}
+
+/******EVENT******/
+.event>button {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #182B4A;
+
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.event>button h4 {
+    display: none;
+
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.event>button p {
+    color: #f9f9f9;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.event>button:hover {
+    background-color: #182B4A;
+    border-color: #f9f9f9;
+    box-shadow: 1px 1px 40px 20px rgba(0, 0, 0, 0.2);
+}
+.event>button:hover p{
+    display: none;
+}
+.event>button:hover h4 {
+    padding: 0.55em;
+    border-radius: 5%;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+/*****FOOTER*****/
+footer p {
+    color: #F9F9F9;
+}
+footer img  {
+    position: absolute;
+    max-width: 15%;
+}
+.half{
+    right: -7.5%;
+    opacity: 0.5;
+}
+.half1{
+    left: -7.5%;
+    opacity: 0.5;
+}
+.fb{
+    width: 3%;
+}
+.light {
+    border-top: 1px solid#F9F9F9;
+    width: 100%;
+}
+/******Background*******/
+.bg-vdc {
+    background-color: #F9F9F9;
+}
+.btn-blu{
+    background-color: #89B5F8;
+}
+.bg-blu{
+    background-color: #89B5F8;
+}
+.bg-event {
+    padding: 10%;
+    background-image: url('../img/plateau.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bg-dblu {
+    background-color: #182B4A;
+}
+/******Media queries******/
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+}
+@media (max-width: 576px) {
+
+}
