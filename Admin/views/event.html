@@ -1,0 +1,50 @@
+
+<?php require('views/nav-bar.html') ?>
+
+<section class="container-fluid bgEve">
+    <div class="row">
+        <div class="col-sm-4 ml-auto">
+            <h1 class="padding">Ajouter un évènement</h1>
+            <div class="card">
+                <div class="card-body">
+                    <div id="datetimepicker1" class="input-append date">
+                        <input type="text" id="Nevent" class="form-control validate border-bottom" placeholder="Le nom du Jeu" required>
+                        <div class="row padding">
+                            <input id="Devent" data-format="dd/MM/yyyy" type="date"/>
+                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span><br>
+                            <button id="addEvent" type="button" class="btn btn-blu mx-4">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div class="col-sm-4 mr-auto">
+            <h1 class="padding">évènements</h1>
+            <div class="card">
+                <div class="card-body bg-light scrollbar-secondary h-75 overflow-auto">
+                    <?php 
+                    foreach ($event as $e)
+                    {
+                    ?>
+                    <div class="shadow padding m-2 p-2 row">
+                        <div>
+                            <p><?php echo \DateTime::createFromFormat("Y-m-d H:i:s", $e["event_date"])->format("d-F-Y"); ?></p>
+                            <p><?php echo htmlspecialchars($e["event_nom"]); ?></p>
+                        </div>
+                        <h3 class="ml-5"><?php echo ($e["resa_nbr"]); ?></h3>
+                        <div class="ml-auto">
+                            <button id="delevent<?php echo $e['event_id'];?>" type="button" class="btn btn-blu">Supprimer</button>
+                            <script>
+                                $('#delevent<?php echo $e['event_id'];?>').click(function() {
+                                deletEvent(<?php echo $e['event_id'];?>);
+            });
+            </script>
+                        </div>
+                    </div>
+                    <?php 
+                    } ?>
+                </div>
+            </div>
+        </div> 
+    </div>
+</section>

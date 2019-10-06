@@ -1,0 +1,101 @@
+
+<?php require('views/nav-bar.html') ?>
+
+<section class="container-fluid bgGerer">
+    <div class="row">
+        <div class="col-sm-4 ml-auto">
+            <h1 class="padding">Ajouter un jeu</h1>
+            <div class="card">
+                <div class="shadow padding m-2">
+                    <input type="text" id="name" class="form-control" name="name" placeholder="Le nom du jeu..." /><br />
+                    <select id="cat" class="" name="cat" placeholder="La catégorie du jeu..." >
+                        <option value='jeu de cartes'>Jeu de Cartes</option>
+                        <option value='jeu de societe'>Jeu de Societes</option>
+                        <option value='jeu de role'>Jeu de Rôles</option>
+                    </select><br />
+                    <input type="number" id="age" class="form-control validate border-bottom mt-2" placeholder="A partir de quel âge" required>
+                    <input type="number" id="Nbrmin" class="form-control validate border-bottom mt-2" placeholder="Nombre de personne minimum" required>
+                    <input type="number" id="Nbrmax" class="form-control validate border-bottom mt-2" placeholder="Nombre de personne maximum" required>
+                    <input type="text" id="tps" class="form-control validate border-bottom mt-2" placeholder="La durée d'une partie" required>
+
+                    <select id="genr" class="mt-2" name="genr" placeholder="Le genre du jeu..." >
+                        <option value="science fiction">Science Fiction</option>
+                        <option value="medieval fantastique">Mediéval Fantastique</option>
+                        <option value='contemporain'>Contemporain</option>
+                        <option value="autres">Autres</option>
+                    </select>
+                    <textarea id="comment" class="form-control mt-2" name="text" placeholder="Description..."></textarea><br />
+                    <label for="InputFile">Image</label>
+                    <input type="file" id="InputFile">
+                    <p class="text-muted">Maximum 300px/300px.</p>
+                    <div class="d-flex flex-row-reverse">
+                        <button id="add" type="button" class="btn btn-blu">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 mr-auto">
+            <div class="row">
+                <h1 class="padding">Jeux du Moment</h1>
+                <!-- Button trigger modal -->
+                <div class="mt-5">
+                    <button type="button" class="btn btn-blu" data-toggle="modal" data-target="#modalChange">Changer</button>
+                </div>
+            </div>
+            <div class="card">
+                <div id="content" class="card-body bg-light scrollbar-secondary overflow-auto" style="height: 50vh;">
+                    <?php 
+                    $i = 0;
+                    foreach ($jdm as $game)
+                    {
+                    ?>
+                    <div class="shadow padding m-2 text-center">
+                        <div class="row"> 
+
+                            <div class="jdc" style="background-image: url('<?php echo'../'. $game ['jeu_img']; ?>');"> </div>
+
+                            <div class=" col-5">
+                                <p><?php echo htmlspecialchars($game["jeu_nom"]); ?></p>
+                                <div class="font-italic"><?php echo htmlspecialchars($game["jeu_des"]); ?></div>
+                            </div> 
+                        </div>
+                    </div>
+                    <?php 
+                    $i++;
+                    } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modaljdm -->
+    <div class="modal fade" id="modalChange" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center">
+                        <h4 class="modal-title font-weight-bold">Jeux du moment</h4>
+                        <br>
+                        <div class="mb-5">
+                            <label data-error="wrong" data-success="right" for="gameSelect">Selectionner le jeu</label><br>
+                            <select type="select" multiple id="gameSelect" class="p-2">
+                                <?php foreach ($games as $game)
+                                {
+                                ?>
+                                <option value="<?php echo $game['jeu_id']; ?>" <?php if((int)$game['jeu_jdm'] == 1) echo 'selected'; ?>>
+                                        <?php echo $game['jeu_nom'];?>
+                            </option><?php 
+                            } ?>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button id="Change" class="btn btn-blu">Changer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

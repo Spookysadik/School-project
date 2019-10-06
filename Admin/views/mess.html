@@ -1,0 +1,64 @@
+
+
+<?php require('views/nav-bar.html') ?>
+<section class="container-fluid bgMess">
+    <div class="col-8 mx-auto">
+        <h1 class="padding">Messagerie</h1>
+        <div class="card">
+            <div class="card-body bg-light scrollbar-secondary h-50 overflow-auto">
+                <?php 
+                foreach ($cont as $c)
+                {
+                ?>
+                <div class="shadow p-2 m-2">
+                    <p class="text-muted"><?php echo htmlspecialchars($c["cont_mail"]); ?></p>
+                    <p><?php echo htmlspecialchars($c["cont_mess"]); ?></p>
+                    <div class="d-flex flex-row-reverse">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-blu ml-2" data-toggle="modal" data-target="#modalAnswer" id="answer<?php echo $c['cont_id'];?>">Répondre</button>
+                        <button id="delmess<?php echo $c['cont_id'];?>" type="button" class="btn btn-blu">Supprimer</button>
+                        <script>
+                            $('#delmess<?php echo $c["cont_id"];?>').click(function() {
+                            delmess(<?php echo $c["cont_id"];?>);
+        });
+        $('#answer<?php echo $c['cont_id'];?>').click(function() {
+                                    currentMail = "<?php echo $c["cont_mail"]; ?>";
+                });
+                </script>
+                    </div>
+                </div>
+                <?php 
+                } ?>
+            </div>
+        </div>
+    </div>
+    <!-- Modaljdr -->
+    <div class="modal fade" id="modalAnswer" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div id="contactForm" class="text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Répondre</h4>
+                        <br>
+
+                        <div class="md-form mb-5">
+                            <input type="text" id="subject" class="form-control validate" placeholder="Sujet" required>
+                            <div id="subjectError"></div>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="text" id="respmess" class="form-control validate" placeholder="Votre réponse" required>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button id="respond" class="btn btn-blu mt-2">Envoyer</button>
+                            <div id="respondSuccess"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,30 @@
+
+<?php require('views/nav-bar.html') ?>
+
+<section class="container-fluid bgResa">
+    <div class="col-8 mx-auto">
+        <h1 class="padding">Salle de Rôle</h1>
+        <div class="card">
+            <div class="card-body bg-light scrollbar-secondary h-50 overflow-auto">
+                <?php 
+                foreach ($resa as $r)
+                {
+                ?>
+                <div class="shadow m-2 p-2">
+                    <p><?php echo  \DateTime::createFromFormat("Y-m-d", $r["resa_jour"])->format("d/F/Y") . " ~ " . htmlspecialchars($r["resa_nom"]) . " ~ " . $r["resa_heure_deb"] . " - " . $r["resa_heure_fin"] . " ~ " . $r["resa_tel"];?></p>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="button" class="btn btn-blu" onclick="delresa<?php echo $r['resa_id']; ?>()" >Supprimer</button>
+                        <script>
+                            function delresa<?php echo $r['resa_id']; ?>()
+                            {
+                            deletResa(<?php echo $r['resa_id'];?>);
+            }
+            </script>
+                    </div>
+                </div>
+                <?php 
+                } ?>
+            </div>
+        </div>
+    </div>
+</section>

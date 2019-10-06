@@ -1,0 +1,44 @@
+
+<?php require('views/nav-bar.html') ?>
+
+<section class="container-fluid bgNews">
+    <div class="row">
+        <div class="col-sm-4 ml-auto">
+            <h1 class="padding">Adresse Mail Utilisateurs</h1>
+            <div class="card">
+                <div class="card-body bg-light scrollbar-secondary h-25 overflow-auto">
+                    <?php 
+                    foreach ($news as $n)
+                    {
+                    ?>
+                    <div class="shadow m-2 p-5 row">
+                        <p><?php echo htmlspecialchars($n["mail_adres"]); ?></p>
+                        <div class="ml-auto">
+                            <button id="delmail<?php echo $n['mail_id'];?>" type="button" class="btn btn-blu">Supprimer</button>
+                            <script>
+                                $('#delmail<?php echo $n["mail_id"];?>').click(function() {
+                                delmail(<?php echo $n["mail_id"];?>);
+            });
+            </script>
+                        </div>
+                    </div>
+                    <?php 
+                    } ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mr-auto">
+            <h1 class="padding">Newsletter</h1>
+            <div class="card">
+                <img class="card-img-top" src="img/upcomingevents.jpg" alt="imgevent">
+                <div class="card-body shadow p-2 m-2">
+                    <input id="title" class="form-control" name="name" placeholder="Titre..." /><br />
+                    <textarea id="lettre" class="form-control" name="text" placeholder="Contenu..."></textarea><br />
+                    <div class="d-flex flex-row-reverse">
+                        <button id="Sendletter" type="button" class="btn btn-blu mx-4">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
